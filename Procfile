@@ -1,1 +1,1 @@
-web: go run ./index.go
+web: graphics
