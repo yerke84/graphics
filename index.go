@@ -76,7 +76,7 @@ var r float64; //Өсу қарқыны
 var xMax int;
 
 func main() {
-    fmt.Println("Running on http://127.0.0.1:8081/?years=30&x0=0.4&r=2.6 and http://127.0.0.1:8081/?w=7000&h=3000")
+    fmt.Println("Running on http://127.0.0.1:8081/?years=30&x0=0.4&r=2.6 and http://127.0.0.1:8081/diagram/?w=7000&h=3000")
     router := mux.NewRouter()
     router.HandleFunc("/", httpserver)
     router.HandleFunc("/diagram", httpserver2)
@@ -100,14 +100,14 @@ func httpserver2(w http.ResponseWriter, req *http.Request) {
     if s, err := strconv.Atoi(key); err == nil {
         canvasHeight = s
     } else {
-        canvasHeight = 3000
+        canvasHeight = 1500
     }
 
     key = req.URL.Query().Get("w")
     if s, err := strconv.Atoi(key); err == nil {
         canvasWidth = s
     } else {
-        canvasWidth = 7000
+        canvasWidth = 3500
     }
 
     //
