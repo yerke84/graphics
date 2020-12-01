@@ -82,9 +82,12 @@ func main() {
     router.HandleFunc("/diagram", httpserver2)
     http.Handle("/", router)
     port := os.Getenv("PORT")
-    if port != "" {
+    if port == "" {
+        fmt.Println("Port env not found, set 8081")
 		    port = "8081"
-  	}
+  	} else {
+        fmt.Println("Port env = " + port)
+    }
     http.ListenAndServe(":"+port, nil)
 }
 //
