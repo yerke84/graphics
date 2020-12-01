@@ -13,6 +13,7 @@ import (
     "image/draw"
     "runtime"
     "strconv"
+    "os"
 )
 
 func generateLineItems() []opts.LineData {
@@ -80,7 +81,11 @@ func main() {
     router.HandleFunc("/", httpserver)
     router.HandleFunc("/diagram", httpserver2)
     http.Handle("/", router)
-    http.ListenAndServe(":8081", nil)
+    port := os.Getenv("PORT")
+    if port != "" {
+		    port = "8081"
+  	}
+    http.ListenAndServe(":"+port, nil)
 }
 //
 func httpserver2(w http.ResponseWriter, req *http.Request) {
