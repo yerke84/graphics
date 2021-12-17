@@ -62,8 +62,8 @@ func httpserver(w http.ResponseWriter, req *http.Request) {
 	line.SetGlobalOptions(
 		charts.WithInitializationOpts(opts.Initialization{Theme: types.ThemeMacarons}),
 		charts.WithTitleOpts(opts.Title{
-			Title:    "Популяция графигі",
-			Subtitle: fmt.Sprintf("Алғашқы популяция: x0 = %v; Өсу қарқыны: r = %v; Жылдар: years = %v; (параметрлерді мына түрде беруге болады: '?years=30&x0=0.4&r=2.6')", x0, r, xMax),
+			Title:    "График популяции",
+			Subtitle: fmt.Sprintf("Первичная популяция: x0 = %v; Постоянная роста: r = %v; Года: years = %v; (параметры можно задать следующим образом: '?years=30&x0=0.4&r=2.6')", x0, r, xMax),
 		}))
 	line.SetXAxis(xArr).
 		AddSeries("Category A", generateLineItems()).
